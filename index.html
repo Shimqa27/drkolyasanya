@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Invite 🇺🇸</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            overflow-x: hidden;
+
+            /* Новый фон */
+            background:
+                radial-gradient(circle at 20% 30%, rgba(0, 40, 120, 0.6), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(180, 0, 0, 0.5), transparent 40%),
+                #0a0f1c;
+        }
+
+        /* Звезды */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* секции */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .section img {
+            width: 70%;
+            height: 70%;
+            border-radius: 10px;
+        }
+
+        /* минимализм */
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-weight: 300;
+            color: #ccc;
+        }
+
+        .card {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+        }
+
+        /* флаг */
+        .flag {
+            width: 80px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* кнопка */
+        .button {
+            display: inline-block;
+            padding: 12px 22px;
+            margin-top: 20px;
+            border: 1px solid white;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            color: black;
+        }
+
+        /* адаптив */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .music{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- падающие звезды -->
+    <div class="stars" id="stars"></div>
+
+    <!-- 1 -->
+    <div class="section">
+        <img src="img\98590d04771024a11a03ea09ac280e1c.png" class="flag">
+        <h1>WELCOME / ДОБРО ПОЖАЛОВАТЬ</h1>
+
+        <div class="card">
+            <p>
+                Double Birthday Party 🎉<br>
+                Александр & Коля celebrating together 🇺🇸<br>
+                Don't miss it — будет красиво
+            </p>
+        </div>
+    </div>
+    <div class="music">
+        <audio id="music" loop>
+            <source src="LMFAO_GoonRock_Lauren_Bennett_-_Party_Rock_Anthem_47961219.mp3" type="audio/mpeg">
+        </audio>
+
+        <button onclick="playMusic()" class="button">▶ PLAY MUSIC</button>
+
+        <script>
+            function playMusic() {
+                const audio = document.getElementById("music");
+                audio.play();
+            }
+        </script>
+    </div>
+    <!-- 2 -->
+    <div class="section">
+        <h2>Dress Code</h2>
+
+        <div class="card">
+            <p>
+                American casual 🇺🇸<br>
+                Джинсы, худи, caps<br>
+                Simple & stylish
+            </p>
+
+            <div class="images">
+                <img src="img\b77bfbb5841ed5c312bde5882729fd36.jpg">
+                <img src="img\67ea21bd0e264ec4973b90abbfc21856.jpg">
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section">
+        <h2>Activities</h2>
+
+        <div class="card">
+            <p>
+                Beer Pong 🍺<br>
+                Frisbee 🥏<br>
+                Twister 🌀<br>
+                Bunker 🤯<br>
+                Real American vibe
+            </p>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="section">
+        <h2>Telegram</h2>
+
+        <div class="card">
+            <p>
+                Join chat / Вступай в беседу 👇
+            </p>
+
+            <a href="https://t.me/+WVG4ShpHcuFlZWIy" class="button">JOIN</a>
+        </div>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById("stars");
+
+        for (let i = 0; i < 80; i++) {
+            let star = document.createElement("div");
+            star.classList.add("star");
+
+            star.style.left = Math.random() * 100 + "vw";
+            star.style.animationDuration = (3 + Math.random() * 5) + "s";
+            star.style.opacity = Math.random();
+
+            starsContainer.appendChild(star);
+        }
+    </script>
+
+</body>
+
+</html>
